@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ax-wang-avi"
 include(":app")
- 
+include(":ax-wang-avi")

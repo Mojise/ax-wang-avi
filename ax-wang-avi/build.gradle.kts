@@ -1,20 +1,18 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
 
 android {
-    namespace = "com.wang.avi.app"
+    namespace = "com.wang.avi"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.wang.avi.app"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -36,11 +34,21 @@ android {
 }
 
 dependencies {
-    implementation(project(":ax-wang-avi"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
+}
+
+afterEvaluate {
+    configure<PublishingExtension> {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.mojise"
+                artifactId = "ax-wang-avi" // 공개할 라이브러리의 이름 예제
+                version = "1.0.0" // 버전 예제
+            }
+        }
+    }
 }
