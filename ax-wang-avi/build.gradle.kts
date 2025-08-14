@@ -47,7 +47,7 @@ afterEvaluate {
 
                 groupId = "com.github.mojise"
                 artifactId = "ax-wang-avi" // 공개할 라이브러리의 이름 예제
-                version = "1.0.0" // 버전 예제
+                version = "1.0.1" // 버전 예제
             }
         }
     }
