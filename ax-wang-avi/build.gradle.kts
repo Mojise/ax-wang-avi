@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        minSdk = 26
+        minSdk = 23
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -47,7 +47,7 @@ afterEvaluate {
 
                 groupId = "com.github.mojise"
                 artifactId = "ax-wang-avi" // 공개할 라이브러리의 이름 예제
-                version = "1.0.1" // 버전 예제
+                version = "1.0.2" // 버전 예제
             }
         }
     }
